@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Frigg Off, Ipsum!</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/icon">
+  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Anton" rel="stylesheet"> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+	
+	<header>
+		<nav>
+			<h1><a href="/">Frigg Off, Ipsum!</a></h1>
+		</nav>
+	</header>
+	
+	<section class="main-container">
+		<form action="" method="get">
+		  <input type="number" name="paragraphs" value=1 min=1 max=100>
+		  <input type="submit" name="submit" value="Make My Words">
+		  <input type="button" class="copy-button" name="copy" value="Copy Text" data-clipboard-target="#output-text">
+		</form>
+		<div id="output-text"></div>
+	</section>
+
+	<div id="copy-overlay">
+		<div id="copy-text">
+			<p>Copied!</p>
+		</div>
+	</div>
+
+	<footer>
+		© 2018 Frigg Off, Ipsum!
+	</footer>
+  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

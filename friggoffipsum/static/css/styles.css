@@ -1,0 +1,124 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html { 
+	background: url(../img/opening_bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	font-family: 'Anonymous Pro', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Anton', sans-serif;
+}
+
+header {
+	background: #333333;
+}
+
+nav {
+	padding: 3em;
+	text-align: center;
+}
+
+nav > h1 {
+	color: #D21E25;
+	font-size: 4em;
+	font-style: italic;
+	margin: 0;
+	text-shadow:
+		1px 1px 0 #FFF,
+		-1px -1px 0 #FFF,  
+		1px -1px 0 #FFF,
+		-1px 1px 0 #FFF,
+		1px 1px 0 #FFF;
+}
+
+nav > h1 > a {
+	color: inherit;
+	text-decoration: none;
+}
+
+section.main-container {
+	text-align: center; 
+  margin-bottom: 1em;
+  padding: 2em;
+}
+
+form {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+input {
+	background: white;
+	border: none;
+	padding: 1em;
+}
+
+input[type='number'] {
+  max-width: 4em;
+}
+
+input[type='submit'] {
+  
+}
+
+#output-text {
+	display: none;
+	max-width: 800px;
+	max-height: 360px;
+	margin: 0 auto;
+	padding: 1em;
+	background: white;	
+	overflow: scroll;
+}
+
+footer {
+	position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  color: white;
+  background-color: #333333;
+  text-align: center;
+}
+
+
+
+#copy-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+}
+
+#copy-text {
+  margin-top: 40vh;
+}
+
+#copy-text p {
+  font-size: 30px;
+  font-family: 'Poppins';
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
