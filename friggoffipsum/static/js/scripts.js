@@ -23,16 +23,13 @@ function handleSubmit(e) {
 	  	var text = json.data;
 	    output.innerHTML = text;
 	    output.style.display = 'inherit';
+	    copy.style.display = 'inline';
 	  }
 	}
 	xhr.open('GET', '/get_text?paragraphs=' + pgraphs, true);
 	xhr.send();
 }
 
-function selectText() {
-	
-	return copyText;
-}
 
 function handleCopy() {
 	var clip = new Clipboard('.copy-button');
