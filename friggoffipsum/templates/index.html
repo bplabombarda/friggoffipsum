@@ -13,26 +13,32 @@
 		<nav>
 			<h1><a href="/">Frigg Off, Ipsum!</a></h1>
 		</nav>
-		<a href="https://github.com/bplabombarda/friggoffipsum"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 	</header>
 	
-	<section class="main-container">
-		<form>
-		  <input type="number" name="paragraphs" value=1 min=1 max=100>
-		  <input type="submit" name="submit" value="Make My Words">
-		  <input type="button" class="copy-button" name="copy" value="Copy Text" data-clipboard-target="#output-text">
-		</form>
+	<section class="button-container">
+		<span>Add Some Paragraphs</span>
+		<input class="button paragraphs" value="1" type="submit">
+		<input class="button paragraphs" value="2" type="submit">
+		<input class="button paragraphs" value="5" type="submit">
+		<input class="button paragraphs" value="10" type="submit">
+		<input id="clear" class="button" value="Clear" type="submit">
+		<div id="copy" class="copy-button hidden" data-clipboard-target="#output-text">
+			Copy Text
+			<span id="alert" class="copied-alert hidden">Copied!</span>
+		</div> 
+	</section>
+
+	<section class="output-container">
 		<div id="output-text"></div>
 	</section>
 
 	<footer>
-		
-		<span>© 2018 Frigg Off, Ipsum!</span>
-		<span><a class="github-button" href="https://github.com/bplabombarda/friggoffipsum" data-icon="octicon-star" aria-label="Star bplabombarda/friggoffipsum on GitHub">Star</a></span>
+		<span class="copyright">
+			© <span id="copyright-year"></span> Frigg Off, Ipsum!
+		</span>
 	</footer>
 
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
