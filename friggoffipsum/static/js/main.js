@@ -17,7 +17,8 @@ copy.addEventListener('click', handleCopy);
 
 function handleClear(e) {
 	output.innerHTML = "";
-	output.style.display = 'none';
+	output.classList.add('hidden');
+	copy.classList.add('hidden');
 }
 
 function handleAddParagraphs(e) {
@@ -30,7 +31,7 @@ function handleAddParagraphs(e) {
 	  	var json = JSON.parse(xhr.responseText);
 	  	var text = json.data;
 	  	output.innerHTML += text;
-	  	output.style.display = 'inherit';
+	  	output.classList.remove('hidden');
 	  	copy.classList.remove('hidden');
 	  }
 	}
@@ -49,6 +50,13 @@ function handleCopy() {
 	var clip = new Clipboard('#copy');
   clip.on('success', function(e) {
     e.clearSelection();
+    alert.classList.remove('invisible');
+    setTimeout(
+      function Remove() {
+				alert.classList.add('invisible');
+      },
+      1500
+    );
   });
 }
 
