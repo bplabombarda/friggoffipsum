@@ -15,22 +15,30 @@
 		</nav>
 	</header>
 	
-	<section class="main-container">
-		<form action="" method="get">
-		  <input type="number" name="paragraphs" value=1 min=1 max=100>
-		  <input type="submit" name="submit" value="Make My Words">
-		  <input type="button" class="copy-button" name="copy" value="Copy Text" data-clipboard-target="#output-text">
-		</form>
-		<div id="output-text"></div>
+	<section class="button-container">
+		<h3>Make My Words</h3>
+		<input class="button paragraphs" value="1" type="submit">
+		<input class="button paragraphs" value="2" type="submit">
+		<input class="button paragraphs" value="5" type="submit">
+		<input class="button paragraphs" value="10" type="submit">
+		<input id="clear" class="button" value="Clear" type="submit">
+		<div id="copy" class="copy-button hidden" data-clipboard-target="#output-text">
+			Copy Text
+			<span id="alert" class="copied-alert invisible">Copied!</span>
+		</div> 
+	</section>
+
+	<section class="output-container">
+		<div id="output-text" class="hidden"></div>
 	</section>
 
 	<footer>
-		<a class="github-button" href="https://github.com/bplabombarda/friggoffipsum" data-icon="octicon-star" aria-label="Star bplabombarda/friggoffipsum on GitHub">Star</a>
-		<p>© 2018 Frigg Off, Ipsum!</p>
+		<span class="copyright">
+			© <span id="copyright-year"></span> Frigg Off, Ipsum!
+		</span>
 	</footer>
 
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
