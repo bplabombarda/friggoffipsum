@@ -1,4 +1,4 @@
 # frigg-off-ipsum
 Make my words.
 
-![Ricky](friggoffipsum/static/img/ricky.jpg)
+![Frigg Off Ipsum](friggoffipsum/static/img/screenshot.png)
