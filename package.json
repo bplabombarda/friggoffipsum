@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/bplabombarda/friggoffipsum#readme",
   "dependencies": {
+    "clipboard": "^2.0.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },

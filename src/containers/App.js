@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
+import Button from '../components/Button';
+
 import quotes from '../data/quotes';
 
 
@@ -8,18 +11,36 @@ export default class App extends Component {
         this.state = {
             profanity: false
         };
-        this.handleInput = this.handleInput.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
     }
 
     handleToggle() {
-    	
+        const { profanity } = this.state;
+
+    	this.setState({
+            profanity: !this.state.profanity
+        });
     }
  	
 	render() {
-		const { profanity } = this.state;
-
 		return (
-			{ this.state.profanity ? <h1>True!</h1> : <h1>False!</h1> }
-		);
+            <Fragment>
+                <header>
+                    <h1><a href="/">Frigg Off, Ipsum!</a></h1>
+                </header>
+
+                <Button 
+                    onClick={this.handleToggle}
+                    profanity={this.state.profanity}
+                />
+
+                <footer>
+                    <span class="copyright">
+                        © <span id="copyright-year"></span> Frigg Off, Ipsum!
+                    </span>
+                </footer>
+                
+            </Fragment>
+        );
 	}
 };
