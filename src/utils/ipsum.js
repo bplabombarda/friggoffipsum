@@ -1,24 +1,25 @@
 import quotes from '../data/quotes';
 
-class Ipsum {
+export default class Ipsum {
 	constructor(profanity) {
-		this.quotes = quotes[profanity];
+		const set = profanity ? 'clean' : 'dirty';
+		this.quotes = quotes[set];
 	}
 
-	getRandomQuote() {
+	_getRandomQuote() {
 		return this.quotes[Math.floor(Math.random()*this.quotes.length)]
 	}
 
-	getParagraph() {
+	_getParagraph() {
 		let paragraph = '';
 		let firstSentence = true;
 		const minCharacters = 250;
-		while (paragraph.length < minLength) {
+		while (paragraph.length < minCharacters) {
 			if (firstSentence) {
-				paragraph += self.getRandomQuote();
+				paragraph += this._getRandomQuote();
 				firstSentence = false;
 			} else {
-				paragraph += self.getRandomQuote();
+				paragraph += this._getRandomQuote();
 			}
 		}
 		return paragraph;
@@ -27,7 +28,7 @@ class Ipsum {
 	getAllParagraphs(paragraphs) {
 		let all = [];
 		while (all.length < paragraphs) {
-			all.append(self.getParagraph())
+			all.push(this._getParagraph())
 		}
 		let html = '';
 		all.forEach(paragraph => {

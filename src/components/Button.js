@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = (props) => {
+const Button = ({ profanity, onClick }) => {
 	return (
-		<button onClick={props.onClick}>
-            { props.profanity ? 'Fuck off, Ricky!' : 'Frigg off, Barb!' }
+		<button onClick={ onClick }>
+            { profanity ? 'Rated PG' : 'Rated R' }
         </button>
 	);
 };
