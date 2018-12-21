@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering matches snapshot 1`] = `
+<section
+  className="output-container"
+>
+  <div
+    className="output hidden"
+  />
+</section>
+`;

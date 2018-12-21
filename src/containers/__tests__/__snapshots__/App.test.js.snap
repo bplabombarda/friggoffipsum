@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering matches snapshot 1`] = `
+<Fragment>
+  <header>
+    <nav>
+      <h1>
+        <a
+          href="/"
+        >
+          Frigg Off, Ipsum!
+        </a>
+      </h1>
+    </nav>
+  </header>
+  <section
+    className="message invisible"
+  >
+    Copied!
+  </section>
+  <section
+    className="button-container"
+  >
+    <Input
+      onClick={[Function]}
+      value="1"
+    />
+    <Input
+      onClick={[Function]}
+      value="2"
+    />
+    <Input
+      onClick={[Function]}
+      value="5"
+    />
+    <Input
+      onClick={[Function]}
+      value="10"
+    />
+    <Input
+      onClick={[Function]}
+      value="Clear"
+    />
+  </section>
+  <section>
+    <button
+      className="button button-disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Clean
+    </button>
+    <button
+      className="button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Greasy
+    </button>
+    <CopyToClipboard
+      onCopy={[Function]}
+      text=""
+    >
+      <button
+        className="button"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Copy
+      </button>
+    </CopyToClipboard>
+  </section>
+  <Output
+    paragraphs={Array []}
+  />
+  <footer>
+    <span
+      className="info"
+    >
+      <a
+        href="https://github.com/bplabombarda/friggoffipsum"
+      >
+        <img
+          alt="GitHub Link"
+          src="https://img.shields.io/badge/Frigg%20Off%20Ipsum%20On%20GitHub-lightgray.svg?style=for-the-badge&logo=github&logoColor=white&colorA=D21E25&colorB=D21E25"
+        />
+      </a>
+    </span>
+  </footer>
+</Fragment>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering matches snapshot 1`] = `
+<input
+  className="button"
+  onClick={[MockFunction]}
+  type="submit"
+  value="3"
+/>
+`;

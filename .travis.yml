@@ -1,10 +1,19 @@
-language: python
-python:
-  - "3.6"
+sudo: false
 
-# command to install dependencies
-install: "make"
+language: node_js
+node_js:
+  - "10"
 
-# command to run tests
+install: npm install
+
 script:
-  - make test
+  # - npm run lint
+  - npm test
+  - npm run build
+
+notifications:
+  email: false
+
+cache:
+  directories:
+    - "node_modules"

@@ -1,6 +1,10 @@
 import React from 'react';
+import {
+  func,
+  string,
+} from 'prop-types'
 
-import '../styles/Input.scss'
+import '../styles/Input.scss';
 
 const Input = ({ onClick, value }) => {
 	return (
@@ -11,6 +15,11 @@ const Input = ({ onClick, value }) => {
       onClick={ onClick }
       />
 	);
+};
+
+Input.propTypes = {
+  onClick: func,
+  value: string,
 };
 
 export default Input;

@@ -8,16 +8,16 @@
 	font-size: 1em;
 	font-weight: 700;
 	cursor: pointer;
-	margin-right: 1em;
+	margin-right: 0.5em;
 }
 
 .button:hover {
 	background: #474747;
 }
 
-.button-gray {
-  background-color: #333333;
-  border-color: #333333;
+.button-disabled,
+.button-disabled:hover {
+	background-color: #777;
 }
 
 .copy-button {

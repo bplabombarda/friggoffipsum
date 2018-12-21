@@ -1,19 +1,24 @@
 import React from 'react';
+import { array } from 'prop-types'
 
-import '../styles/Output.scss'
+import '../styles/Output.scss';
 
 const Output = ({ paragraphs }) => {
 	return (
-		<section className="output-container">
-			<div id="output-text" className={ paragraphs.length ? '' : 'hidden' }>
+		<section className='output-container'>
+			<div className={ paragraphs.length ? 'output' : 'output hidden' } >
 				{
 					paragraphs.map((paragraph, index) => (
-						<p key={index}>{ paragraph }</p>
+						<p key={ index }>{ paragraph }</p>
 					))
 				}
 			</div>
 		</section>
 	);
+};
+
+Output.propTypes = {
+  paragraphs: array,
 };
 
 export default Output;

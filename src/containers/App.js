@@ -15,7 +15,7 @@ export default class App extends React.PureComponent {
   }
 
   handleToggle = () => {
-  	this.setState((prevState) => ({
+    this.setState((prevState) => ({
       output: [],
       profanity: !prevState.profanity,
     }));
@@ -42,7 +42,7 @@ export default class App extends React.PureComponent {
   handleCopyOutput = () => {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
-            this.setState({ copied: false });
+          this.setState({ copied: false });
         },
         1500
       );    
@@ -64,13 +64,13 @@ export default class App extends React.PureComponent {
       <>
         <header>
           <nav>
-            <h1><a href="/">Frigg Off, Ipsum!</a></h1>
+            <h1><a href='/'>Frigg Off, Ipsum!</a></h1>
           </nav>
         </header>
         <section className={ copied ? 'message' : 'message invisible' }>
           Copied!
         </section>
-        <section className="button-container">
+        <section className='button-container'>
           <Input
             onClick={ this.handleParagraphs }
             value='1'
@@ -95,21 +95,21 @@ export default class App extends React.PureComponent {
         <section>
           <button
             className={ profanity ? 'button' : 'button button-disabled' }
-            disabled={ profanity }
+            disabled={ !profanity }
             onClick={ this.handleToggle }
             >
             Clean
           </button>
           <button
             className={ profanity ? 'button button-disabled' : 'button' }
-            disabled={ !profanity }
+            disabled={ profanity }
             onClick={ this.handleToggle }
             >
             Greasy
           </button>
           <CopyToClipboard
             onCopy={ this.handleCopyOutput }
-            text={ output.join('\n').trim() }>
+            text={ output.join('\n\n').trim() }>
             <button
               className='button'
               disabled={ !output.length }
@@ -121,13 +121,13 @@ export default class App extends React.PureComponent {
         </section>
         <Output paragraphs={ output } />
         <footer>
-          <span className="info">
-            <a href="https://github.com/bplabombarda/friggoffipsum">
-              <img src='https://img.shields.io/badge/Frigg%20Off%20Ipsum%20On%20GitHub-lightgray.svg?style=for-the-badge&logo=github&logoColor=white&colorA=D21E25&colorB=D21E25' />
+          <span className='info'>
+            <a href='https://github.com/bplabombarda/friggoffipsum'>
+              <img alt='GitHub Link' src='https://img.shields.io/badge/Frigg%20Off%20Ipsum%20On%20GitHub-lightgray.svg?style=for-the-badge&logo=github&logoColor=white&colorA=D21E25&colorB=D21E25' />
             </a>
           </span>
         </footer>
       </>
     );
 	}
-};
+}
