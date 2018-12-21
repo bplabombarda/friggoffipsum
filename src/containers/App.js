@@ -1,95 +1,133 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import Button from '../components/Button';
+import Input from '../components/Input';
 import Output from '../components/Output';
 
 import Ipsum from '../utils/ipsum';
+import '../styles/App.scss';
 
+export default class App extends React.PureComponent {
+	state = {
+    copied: false,
+    output: [],
+    profanity: false,
+  }
 
-export default class App extends Component {
-	constructor(props){
-        super(props);
-        this.state = {
-            output: [],
-            profanity: false,
-        };
-        this.handleParagraphs = this.handleParagraphs.bind(this);
-        this.handleToggle = this.handleToggle.bind(this);
-    }
+  handleToggle = () => {
+  	this.setState((prevState) => ({
+      output: [],
+      profanity: !prevState.profanity,
+    }));
+  }
 
-    handleToggle() {
-    	this.setState({
-            output: [],
-            profanity: !this.state.profanity,
-        });
-    }
+  handleParagraphs = (evt) => {
+    const ipsum = new Ipsum(this.state.profanity);
+    const newParagraphs = ipsum.getAllParagraphs(evt.target.value);
+    
+    this.setState((prevState) => ({
+      output: [
+        ...prevState.output,
+        ...newParagraphs,
+      ]
+    }));
+  }
 
-    handleParagraphs(e) {
-        const ipsum = new Ipsum(this.state.profanity);
-        const newParagraphs = ipsum.getAllParagraphs(e.target.value);
-        const output = this.state.output
-        console.log(e.target.value)
-        console.log(newParagraphs)
+  handleClearOutput = () => {
+    this.setState({
+      output: []
+    });
+  }
 
+  handleCopyOutput = () => {
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+            this.setState({ copied: false });
+        },
+        1500
+      );    
+    });  
+  }
+   
+  resetCopiedStatus () {
+    this.setState({ copied: false });
+  }
 
-        this.setState({
-            output: [
-                ...this.state.output,
-                newParagraphs
-            ],
-        });
-    }
-
-    handleClearOutput() {
-        this.setState({
-            output: []
-        });
-    }
- 	
 	render() {
-        const d = new Date();
-        const { profanity } = this.state;
+    const {
+      copied,
+      output,
+      profanity,
+    } = this.state;
 
 		return (
-            <Fragment>
-                <header>
-                    <nav>
-                        <h1><a href="/">Frigg Off, Ipsum!</a></h1>
-                    </nav>
-                </header>
-
-                <section className="button-container">
-                    <input className="button paragraphs" value="1" type="submit" onClick={this.handleParagraphs.bind(this)}/>
-                    <input className="button paragraphs" value="2" type="submit" onClick={this.handleParagraphs.bind(this)}/>
-                    <input className="button paragraphs" value="5" type="submit" onClick={this.handleParagraphs.bind(this)}/>
-                    <input className="button paragraphs" value="10" type="submit" onClick={this.handleParagraphs.bind(this)}/>
-                    <input id="clear" className="button" value="Clear" type="submit" onClick={this.handleClearOutput.bind(this)}/>
-                </section>
-
-                <section>
-                    <button onClick={ this.handleToggle }>
-                        Clean
-                    </button>
-
-                    <button onClick={ this.handleToggle }>
-                        Greasy
-                    </button>
-
-                    <button onClick={ this.handleToggle }>
-                        Classic
-                    </button>
-                    
-                </section>
-
-                <Output html={this.state.output}/>
-
-                <footer>
-                    <span className="copyright">
-                        © <span id="copyright-year">{ d.getFullYear() }</span> Frigg Off, Ipsum!
-                    </span>
-                </footer>
-
-            </Fragment>
-        );
+      <>
+        <header>
+          <nav>
+            <h1><a href="/">Frigg Off, Ipsum!</a></h1>
+          </nav>
+        </header>
+        <section className={ copied ? 'message' : 'message invisible' }>
+          Copied!
+        </section>
+        <section className="button-container">
+          <Input
+            onClick={ this.handleParagraphs }
+            value='1'
+            />
+          <Input
+            onClick={ this.handleParagraphs }
+            value='2'
+            />
+          <Input
+            onClick={ this.handleParagraphs }
+            value='5'
+            />
+          <Input
+            onClick={ this.handleParagraphs }
+            value='10'
+            />
+          <Input
+            onClick={ this.handleClearOutput }
+            value='Clear'
+            />
+        </section>
+        <section>
+          <button
+            className={ profanity ? 'button' : 'button button-disabled' }
+            disabled={ profanity }
+            onClick={ this.handleToggle }
+            >
+            Clean
+          </button>
+          <button
+            className={ profanity ? 'button button-disabled' : 'button' }
+            disabled={ !profanity }
+            onClick={ this.handleToggle }
+            >
+            Greasy
+          </button>
+          <CopyToClipboard
+            onCopy={ this.handleCopyOutput }
+            text={ output.join('\n').trim() }>
+            <button
+              className='button'
+              disabled={ !output.length }
+              onClick={ this.handleCopyOutput }
+              >
+              Copy
+            </button>
+          </CopyToClipboard>
+        </section>
+        <Output paragraphs={ output } />
+        <footer>
+          <span className="info">
+            <a href="https://github.com/bplabombarda/friggoffipsum">
+              <img src='https://img.shields.io/badge/Frigg%20Off%20Ipsum%20On%20GitHub-lightgray.svg?style=for-the-badge&logo=github&logoColor=white&colorA=D21E25&colorB=D21E25' />
+            </a>
+          </span>
+        </footer>
+      </>
+    );
 	}
 };

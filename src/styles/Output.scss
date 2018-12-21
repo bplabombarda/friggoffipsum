@@ -1,0 +1,19 @@
+#output-text {
+	font-size: 0.8em;
+	max-height: 360px;
+	margin: 0 auto;
+	padding: 1em;
+	background: white;	
+	overflow: scroll;
+}
+
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0,0,0,.5);
+	-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

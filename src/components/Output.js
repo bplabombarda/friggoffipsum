@@ -1,9 +1,17 @@
 import React from 'react';
 
-const Output = ({ html }) => {
+import '../styles/Output.scss'
+
+const Output = ({ paragraphs }) => {
 	return (
 		<section className="output-container">
-			<div id="output-text" className="hidden"></div>
+			<div id="output-text" className={ paragraphs.length ? '' : 'hidden' }>
+				{
+					paragraphs.map((paragraph, index) => (
+						<p key={index}>{ paragraph }</p>
+					))
+				}
+			</div>
 		</section>
 	);
 };
