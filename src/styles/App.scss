@@ -4,7 +4,7 @@ html, body {
 }
 
 html { 
-	background: url(../img/opening_bg.jpg) no-repeat center center fixed; 
+	background: url(../assets/img/opening_bg.jpg) no-repeat center center fixed; 
 	background-size: cover;
 }
 
@@ -61,43 +61,6 @@ section {
 	margin: 0.6em;
 }
 
-input {
-	background: #333;
-	border: none;
-	padding: 0.6em;
-	color: #d21e25;
-	border-radius: 3px;
-	font-family: 'Anonymous Pro';
-	font-size: 1em;
-	cursor: pointer;
-}
-
-input:hover {
-	background: #474747;
-}
-
-.button-gray {
-  background-color: #333333;
-  border-color: #333333;
-}
-
-.copy-button {
-	position: relative;
-	display: block;
-	color: #d21e25;
-	background: #333;
-	margin: 1em;
-	padding: 0.6em;
-	width: 100px;
-	margin: 1em auto 0;
-	border-radius: 3px;
-	cursor: pointer;
-}
-
-.copy-button:hover {
-	background: #474747;
-}
-
 .hidden {
 	display: none;
 }
@@ -125,24 +88,15 @@ input:hover {
   transition: opacity 0.3s;
 }
 
-#output-text {
-	font-size: 0.8em;
-	max-height: 360px;
-	margin: 0 auto;
-	padding: 1em;
-	background: white;	
-	overflow: scroll;
+.message {
+	background:#D21E25;
+	opacity: 0.85;
+	color: white;
+	font-weight: 700;
 }
 
-::-webkit-scrollbar {
-	-webkit-appearance: none;
-	width: 7px;
-}
-
-::-webkit-scrollbar-thumb {
-	border-radius: 4px;
-	background-color: rgba(0,0,0,.5);
-	-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+.invisible {
+	visibility: hidden
 }
 
 footer {
@@ -150,7 +104,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 0;
   color: white;
   background-color: #333333;
   text-align: center;
