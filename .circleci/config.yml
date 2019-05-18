@@ -1,39 +1,89 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
-version: 2
+version: 2.1
 jobs:
   build:
-    working_directory: ~/project
-
     docker:
-      # specify the version you desire here
       - image: circleci/node:10-stretch
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+    working_directory: ~/friggoffipsum
 
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
-
-      - run: npm run lint
+      - run:
+          name: Install Dependencies
+          command: npm install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      - run: npm test
+      - run:
+          name: Lint
+          command: npm run lint
+
+      - run:
+          name: Run Tests
+          command: npm run test
+
+      - run:
+          name: Build project
+          command: npm run build
+
+      - save_cache:
+          paths:
+            - node_modules
+            - build
+          key: v1-dependencies-{{ .Branch }}
+
+  deploy:
+    docker:
+      - image: circleci/node:10-stretch
+    
+    working_directory: ~/friggoffipsum
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ .Branch }}
+
+      - run:
+          name: Configure Github user
+          command: |
+            git config --global user.email $GITHUB_EMAIL
+            git config --global user.name $GITHUB_NAME
+
+      - run:
+          name: Copy CI Config
+          command: cp -r .circleci/ build/.circleci
+
+      - run:
+          name: Create Commit
+          command: |
+            git add -f build
+            git commit -m "Automated deployment to GitHub Pages ${CIRCLE_SHA1}"
+
+      - run:
+          name: Push to GitHub Pages
+          command: git push https://${GITHUB_TOKEN}@github.com/bplabombarda/trophytouchers `git subtree split --prefix build development`:refs/heads/gh-pages --force &> /dev/null
+
+workflows:
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: development
+      - deploy:
+          filters:
+            branches:
+              only: development
+          requires:
+            - build
