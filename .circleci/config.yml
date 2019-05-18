@@ -72,7 +72,7 @@ jobs:
 
       - run:
           name: Push to GitHub Pages
-          command: git push https://${GITHUB_TOKEN}@github.com/bplabombarda/trophytouchers `git subtree split --prefix build development`:refs/heads/gh-pages --force &> /dev/null
+          command: git push https://${GITHUB_TOKEN}@github.com/bplabombarda/friggoffipsum `git subtree split --prefix build development`:refs/heads/gh-pages --force &> /dev/null
 
 workflows:
   main:
