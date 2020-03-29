@@ -21,16 +21,9 @@
     "\\.(css|sass|scss)$": "<rootDir>/src/styles/__mocks__/styleMock.js"
   },
   "modulePathIgnorePatterns": ["public"],
-  "notify": true,
   "rootDir": ".",
   "setupFiles": [
     "<rootDir>/config/testing/setUp.js"
-  ],
-  "transform": {
-    "^.+\\.js?$": "babel-jest"
-  },
-  "transformIgnorePatterns": [
-    "!node_modules/react-runtime"
   ],
   "verbose": true
 }
