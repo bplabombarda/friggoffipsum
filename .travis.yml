@@ -17,7 +17,7 @@ deploy:
   local_dir: build
   target-branch: gh-pages
   on:
-    branch: development
+    branch: master
 cache:
   directories:
   - node_modules

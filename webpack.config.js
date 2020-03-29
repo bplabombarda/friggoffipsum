@@ -51,9 +51,7 @@ const commonConfig = {
       test: /\.css|scss/,
       options: {
         postcss: [
-          autoprefixer({
-            browsers: ['last 2 versions']
-          })
+          autoprefixer()
         ]
       }
     }),
@@ -67,7 +65,7 @@ const commonConfig = {
 }
 
 if ( ENV === 'dev') {
-  console.log( 'Serving locally...');
+  console.info( 'Serving locally...');
 
   module.exports = merge( commonConfig, {
     mode: 'development',
@@ -97,7 +95,7 @@ if ( ENV === 'dev') {
 }
 
 if ( ENV === 'prod') {
-  console.log( 'Building for prod...');
+  console.info( 'Building for prod...');
 
   module.exports = merge( commonConfig, {
     mode: 'production',
