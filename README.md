@@ -14,4 +14,4 @@ Make my words.
 
 ### Production
 
-...Workin' on it
+`npm run build`
