@@ -11,7 +11,7 @@
     "clean": "rimraf build",
     "build": "npm run clean && webpack -p",
     "lint": "eslint ./src",
-    "test": "NODE_ENV=development ./node_modules/.bin/jest --config=jest.json"
+    "test": "NODE_ENV=development ./node_modules/.bin/jest --config=congif/testing/jest.json"
   },
   "repository": {
     "type": "git",
