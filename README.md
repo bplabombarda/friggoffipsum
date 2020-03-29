@@ -6,12 +6,12 @@ Make my words.
 
 ## Instructions
 
-### Development
+### Local Development
 
 1. `npm install`
 
 2. `npm start`
 
-### Production
+### Build
 
-...Workin' on it
+`npm run build`
