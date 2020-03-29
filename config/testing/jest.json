@@ -21,7 +21,7 @@
     "\\.(css|sass|scss)$": "<rootDir>/src/styles/__mocks__/styleMock.js"
   },
   "modulePathIgnorePatterns": ["public"],
-  "rootDir": ".",
+  "rootDir": "../..",
   "setupFiles": [
     "<rootDir>/config/testing/setUp.js"
   ],
